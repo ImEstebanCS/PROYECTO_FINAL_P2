@@ -13,6 +13,7 @@ public class Producto {
     private double precio;
     private EstadoProducto estadoProducto;
     private LocalDate fechaPublicacion;
+
     private List<Comentario> comentarios = new ArrayList<>();
 
     public Producto(String nombre,

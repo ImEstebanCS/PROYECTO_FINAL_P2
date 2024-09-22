@@ -8,7 +8,7 @@ public class Usuario {
     private String usuario;
     private String contrasena;
 
-    public Usuario (String nombre, String apellidos, String cedula, String direccion, String usuario, String contrasena) {
+    public Usuario(String nombre, String apellidos, String cedula, String direccion, String usuario, String contrasena) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cedula = cedula;
