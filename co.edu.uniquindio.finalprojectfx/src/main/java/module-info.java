@@ -5,4 +5,10 @@ module co.edu.uniquindio.finalprojectfx.finalprojectapp {
 
     opens co.edu.uniquindio.finalprojectfx.finalprojectapp to javafx.fxml;
     exports co.edu.uniquindio.finalprojectfx.finalprojectapp;
+
+    opens co.edu.uniquindio.finalprojectfx.finalprojectapp.controller;
+    exports co.edu.uniquindio.finalprojectfx.finalprojectapp.controller;
+
+    opens co.edu.uniquindio.finalprojectfx.finalprojectapp.model;
+    exports co.edu.uniquindio.finalprojectfx.finalprojectapp.model;
 }
