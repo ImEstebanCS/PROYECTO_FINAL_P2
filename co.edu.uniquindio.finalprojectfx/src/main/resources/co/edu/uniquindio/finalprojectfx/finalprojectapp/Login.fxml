@@ -41,8 +41,8 @@
             <Image url="@../../../../../../../../../../../Downloads/icons8-lock-50.png" />
          </image>
       </ImageView>
-      <TextField layoutX="54.0" layoutY="193.0" prefHeight="27.0" prefWidth="189.0" />
-      <TextField layoutX="54.0" layoutY="252.0" prefHeight="27.0" prefWidth="188.0" />
+      <TextField fx:id="txtUsuario" layoutX="54.0" layoutY="193.0" prefHeight="27.0" prefWidth="189.0" />
+      <TextField fx:id="txtContrasena" layoutX="54.0" layoutY="252.0" prefHeight="27.0" prefWidth="188.0" />
       <Label layoutX="14.0" layoutY="108.0" text="BIENVENIDO">
          <font>
             <Font name="Apple SD Gothic Neo Heavy" size="22.0" />
@@ -53,7 +53,7 @@
             <Font name="Apple SD Gothic Neo UltraLight" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="231.0" style="-fx-background-color: linear-gradient( #6600CC, #000000); -fx-text-fill: white;" text="IINGRESAR" />
+      <Button fx:id="btnIngresar" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="231.0" style="-fx-background-color: linear-gradient( #6600CC, #000000); -fx-text-fill: white;" text="IINGRESAR" />
       <ImageView fitHeight="66.0" fitWidth="60.0" layoutX="315.0" layoutY="345.0">
          <image>
             <Image url="@../../../../../../../../../../../Downloads/icons8-usuario-24%20(2).png" />
