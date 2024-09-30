@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="553.0" prefWidth="401.0" style="-fx-background-color: linear-gradient( #6600CC, #000000);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.finalprojectfx.finalprojectapp.controller.LoginController">
+<AnchorPane prefHeight="553.0" prefWidth="401.0" style="-fx-background-color: linear-gradient( #6600CC, #000000);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller.LoginViewcontoller">
    <children>
       <Polygon fill="DODGERBLUE" layoutX="94.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0); -fx-fill: #e0e0e0;">
         <points>
