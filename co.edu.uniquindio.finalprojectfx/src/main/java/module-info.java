@@ -1,6 +1,7 @@
 module co.edu.uniquindio.finalprojectfx.finalprojectapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.net.http;
 
 
     opens co.edu.uniquindio.finalprojectfx.finalprojectapp to javafx.fxml;
@@ -11,4 +12,8 @@ module co.edu.uniquindio.finalprojectfx.finalprojectapp {
 
     opens co.edu.uniquindio.finalprojectfx.finalprojectapp.model;
     exports co.edu.uniquindio.finalprojectfx.finalprojectapp.model;
+
+    opens co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller;
+    exports co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller;
+
 }

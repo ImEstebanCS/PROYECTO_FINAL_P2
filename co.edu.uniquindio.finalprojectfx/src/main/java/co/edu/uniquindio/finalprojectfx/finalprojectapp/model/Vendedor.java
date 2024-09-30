@@ -5,7 +5,7 @@ import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.builder.VendedorBu
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vendedor extends Usuario{
+public class Vendedor extends Persona{
     private List<Vendedor> listaAliados = new ArrayList<>();
     private List<Producto> listaProductos = new ArrayList<>();
 

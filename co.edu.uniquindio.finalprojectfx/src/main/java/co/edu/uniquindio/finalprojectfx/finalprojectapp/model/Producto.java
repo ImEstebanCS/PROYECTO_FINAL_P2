@@ -14,7 +14,7 @@ public class Producto {
     private EstadoProducto estadoProducto;
     private LocalDate fechaPublicacion;
 
-    private List<Comentario> comentarios = new ArrayList<>();
+    private List<Comentarios> comentarios = new ArrayList<>();
 
     public Producto(String nombre,
                     String imagen,
@@ -54,7 +54,7 @@ public class Producto {
         return fechaPublicacion;
     }
 
-    public List<Comentario> getComentarios() {
+    public List<Comentarios> getComentarios() {
         return comentarios;
     }
 

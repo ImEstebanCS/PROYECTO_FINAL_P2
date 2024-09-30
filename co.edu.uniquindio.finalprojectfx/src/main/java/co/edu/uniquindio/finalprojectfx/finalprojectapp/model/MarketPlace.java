@@ -134,7 +134,9 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud {
     }
 
     @Override
-    public boolean actulizarProducto(String nombre, double precio, EstadoProducto estadoProducto) {
+    public boolean actulizarProducto(String nombre,
+                                     double precio,
+                                     EstadoProducto estadoProducto) {
         Producto productoExistente = obtenerProducto(nombre);
         if (productoExistente != null) {
             Producto productoActualizado = Producto.builder()
