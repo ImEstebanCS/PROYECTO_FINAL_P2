@@ -89,7 +89,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud {
     private Vendedor obtenerVendedor(String cedula) {
         Vendedor vendedorExistente = null;
         for (Vendedor vendedor : getListaVendedores()) {
-            if (vendedor.getCedula().equals(cedula)) {
+            if (vendedor.getCedula().equalsIgnoreCase(cedula)) {
                 vendedorExistente = vendedor;
                 break;
             }

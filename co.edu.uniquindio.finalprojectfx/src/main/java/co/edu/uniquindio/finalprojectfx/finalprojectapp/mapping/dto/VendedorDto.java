@@ -4,6 +4,8 @@ public record VendedorDto(
     String nombre,
     String apellidos,
     String cedula,
-    String direccion
+    String direccion,
+    String usuario,
+    String contrasena
 ) {
 }

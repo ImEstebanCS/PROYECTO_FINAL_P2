@@ -1,16 +1,28 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.factory;
 
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.mappers.MarketPlaceMappingImpl;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.EstadoProducto;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IMarketPlaceMapping;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IModelFactoryService;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IProductoCrud;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IVendedorCrud;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.MarketPlace;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.DataUtil;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class ModelFactory implements IVendedorCrud, IProductoCrud {
+public class ModelFactory implements IVendedorCrud, IProductoCrud, IModelFactoryService {
 
     private static ModelFactory modelFactory;
     private MarketPlace marketPlace;
+    private IMarketPlaceMapping mapper;
+
+    private ModelFactory() {
+        mapper = new MarketPlaceMappingImpl();
+        marketPlace = DataUtil.inicializarDatos();
+    }
 
     public static ModelFactory getInstance() {
         if(modelFactory == null) {
@@ -47,6 +59,11 @@ public class ModelFactory implements IVendedorCrud, IProductoCrud {
     @Override
     public boolean eliminarProducto(String nombre) {
         return false;
+    }
+
+    @Override
+    public List<VendedorDto> obtenerVendedores() {
+        return mapper.getVendedorDto(marketPlace.getListaVendedores());
     }
 }
 
