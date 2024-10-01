@@ -1,7 +1,6 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller;
 
 import java.net.URL;
-import java.net.http.WebSocket;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.controller.VendedorController;
@@ -14,9 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdministardorViewController {
+public class AdministradorViewController {
 
     VendedorController vendedorController;
     ObservableList<VendedorDto> listaVendedores = FXCollections.observableArrayList();
