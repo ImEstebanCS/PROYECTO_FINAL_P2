@@ -49,3 +49,5 @@ public class ModelFactory implements IVendedorCrud, IProductoCrud {
         return false;
     }
 }
+
+// organizar dto, organizar model factory, organizar clases, minuto 39.53
