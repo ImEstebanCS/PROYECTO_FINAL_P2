@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="731548d0-0b2a-4477-9aed-ca931b095494" name="Changes" comment="" />
+    <list default="true" id="731548d0-0b2a-4477-9aed-ca931b095494" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +29,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ImEstebanCS"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ImEstebanCS/PROYECTO_FINAL_P2.git",
+    "accountId": "c01f37bc-f8a1-4f70-8ec1-6f61fcc44032"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -44,8 +59,9 @@
     "Application.MainApp.executor": "Run",
     "Application.co.edu.uniquindio.finalprojectfx.finalprojectapp.MainApp.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "MaicolBranch",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ImEstebanCS/Desktop/PROYECTO_FINAL_P2/PROYECTO_FINAL_P2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,6 +131,7 @@
       <updated>1726783469684</updated>
       <workItem from="1726783471716" duration="6346000" />
       <workItem from="1726810424700" duration="53000" />
+      <workItem from="1727793821563" duration="67000" />
     </task>
     <servers />
   </component>
