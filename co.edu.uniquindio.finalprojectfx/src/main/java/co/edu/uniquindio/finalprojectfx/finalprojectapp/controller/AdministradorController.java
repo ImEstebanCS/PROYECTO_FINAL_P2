@@ -1,4 +1,17 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.controller;
 
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.factory.ModelFactory;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
+
+import java.util.List;
+
 public class AdministradorController {
+    ModelFactory modelFactory;
+    public AdministradorController() {
+        modelFactory = ModelFactory.getInstance();
+    }
+
+    public List<VendedorDto> obtenerVendedores() {
+        return modelFactory.obtenerVendedores();
+    }
 }

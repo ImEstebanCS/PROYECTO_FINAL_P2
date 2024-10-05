@@ -1,5 +1,6 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.model;
 
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IAdministradorCrud;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IProductoCrud;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IVendedorCrud;
 
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketPlace implements IVendedorCrud, IProductoCrud {
+public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministradorCrud {
 
     private String nombre;
     private List<Vendedor> ListaVendedores = new ArrayList<>();
@@ -174,5 +175,74 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud {
         }
     }
 
+    @Override
+    public boolean crearAdministrador(String nombre,
+                                 String apellidos,
+                                 String cedula,
+                                 String direccion,
+                                 String usuario,
+                                 String contrasena) {
+        Vendedor vendedorExistente = obtenerAdministrador(cedula);
+        if (vendedorExistente == null) {
+            Vendedor vendedor = Vendedor.builder()
+                    .nombre(nombre)
+                    .apellidos(apellidos)
+                    .cedula(cedula)
+                    .direccion(direccion)
+                    .usuario(usuario)
+                    .contrasena(contrasena)
+                    .build();
+            getListaVendedores().add(vendedor);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean actualizarAdministrador(String nombre,
+                                      String apellidos,
+                                      String cedula,
+                                      String direccion,
+                                      String usuario,
+                                      String contrasena) {
+        Vendedor vendedorExistente = obtenerAdministrador(cedula);
+        if (vendedorExistente != null) {
+            Vendedor vendedorActualizado = Vendedor.builder()
+                    .nombre(nombre)
+                    .apellidos(apellidos)
+                    .direccion(direccion)
+                    .usuario(usuario)
+                    .contrasena(contrasena)
+                    .build();
+            getListaVendedores().remove(vendedorExistente);
+            getListaVendedores().add(vendedorActualizado);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private Vendedor obtenerAdministrador(String cedula) {
+        Vendedor vendedorExistente = null;
+        for (Vendedor vendedor : getListaVendedores()) {
+            if (vendedor.getCedula().equalsIgnoreCase(cedula)) {
+                vendedorExistente = vendedor;
+                break;
+            }
+        }
+        return vendedorExistente;
+    }
+
+    @Override
+    public boolean eliminarAdministrador(String cedula) {
+        Vendedor vendedorExistente = obtenerAdministrador(cedula);
+        if (vendedorExistente != null) {
+            getListaVendedores().remove(vendedorExistente);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 

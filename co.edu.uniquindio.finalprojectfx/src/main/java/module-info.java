@@ -2,6 +2,7 @@ module co.edu.uniquindio.finalprojectfx.finalprojectapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.net.http;
+    requires java.compiler;
 
 
     opens co.edu.uniquindio.finalprojectfx.finalprojectapp to javafx.fxml;
