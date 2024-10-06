@@ -1,22 +1,25 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.finalprojectfx.finalprojectapp.controller.VendedorController;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.controller.AdministradorController;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import javax.lang.model.util.AbstractElementVisitor14;
+
+import static co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.MarketPlaceConstantes.*;
 
 public class AdministradorViewController {
 
-    VendedorController vendedorController;
+    AdministradorController administradorController;
     ObservableList<VendedorDto> listaVendedores = FXCollections.observableArrayList();
     VendedorDto vendedorSeleccionado;
 
@@ -27,7 +30,7 @@ public class AdministradorViewController {
     private URL location;
 
     @FXML
-    private TextField TxtCedula;
+    private TextField txtCedula;
 
     @FXML
     private Button btnActualizar;
@@ -72,29 +75,34 @@ public class AdministradorViewController {
     private TextField txtNombre;
 
     @FXML
-    private TextField txtNombre1;
+    private TextField txtUsuario;
 
     @FXML
-    private TextField txtNombre2;
+    private TextField txtContrasena;
 
     @FXML
     void initialize() {
-        vendedorController = new VendedorController();
+        administradorController = new AdministradorController();
         initView();
+    }
+
+    @FXML
+    void onAgregarVendedor(ActionEvent event) {
+        agregarVendedor();
     }
 
     private void initView() {
         initDataBinding();
-        obtenerVendedor();
+        obtenerVendedores();
         tableVendedor.getItems().clear();
         tableVendedor.setItems(listaVendedores);
         listenerSelection();
     }
 
-    private void obtenerVendedor() {
+    private void obtenerVendedores() {
+        listaVendedores.addAll(administradorController.obtenerVendedores());
 
     }
-
 
     private void initDataBinding() {
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
@@ -110,15 +118,105 @@ public class AdministradorViewController {
             vendedorSeleccionado = newSelection;
             mostrarInformacionVendedor(vendedorSeleccionado);
         });
+
+    }
+
+    private void agregarVendedor() {
+        VendedorDto vendedorDto = crearVendedorDto();
+        if(datosValidos(vendedorDto)) {
+            if(administradorController.agregarVendedor(vendedorDto)) {
+                listaVendedores.addAll(vendedorDto);
+                limpiarCampos();
+                mostrarMensaje(TITULO_VENDEDOR_AGREGADO, HEADER, BODY_VENDEDOR_AGREGADO, Alert.AlertType.INFORMATION);
+            } else {
+                mostrarMensaje(TITULO_VENDEDOR_NO_AGREGADO, HEADER, BODY_VENDEDOR_NO_AGREGADO,Alert.AlertType.ERROR);
+
+            }
+        } else {
+            mostrarMensaje(TITULO_INCOMPLETO, HEADER, BODY_INCOMPLETO, Alert.AlertType.WARNING);
+
+        }
+
+    }
+
+    private void limpiarCampos() {
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtCedula.setText("");
+        txtDireccion.setText("");
+        txtUsuario.setText("");
+        txtContrasena.setText("");
+    }
+
+    private boolean datosValidos(VendedorDto vendedorDto) {
+        if(vendedorDto.nombre().isBlank() ||
+                vendedorDto.apellidos().isBlank() ||
+           vendedorDto.cedula().isBlank() ||
+           vendedorDto.direccion().isBlank() ||
+           vendedorDto.usuario().isBlank() ||
+           vendedorDto.contrasena().isBlank()
+        ){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private VendedorDto crearVendedorDto() {
+        return new VendedorDto(
+                txtNombre.getText(),
+                txtApellidos.getText(),
+                txtCedula.getText(),
+                txtDireccion.getText(),
+                txtUsuario.getText(),
+                txtContrasena.getText());
     }
 
     private void mostrarInformacionVendedor(VendedorDto vendedorSeleccionado) {
-        if(vendedorSeleccionado != null){
+        if(vendedorSeleccionado != null) {
             txtNombre.setText(vendedorSeleccionado.nombre());
             txtApellidos.setText(vendedorSeleccionado.apellidos());
-            TxtCedula.setText(vendedorSeleccionado.cedula());
+            txtCedula.setText(vendedorSeleccionado.cedula());
             txtDireccion.setText(vendedorSeleccionado.direccion());
+            txtUsuario.setText(vendedorSeleccionado.usuario());
+            txtContrasena.setText(vendedorSeleccionado.contrasena());
         }
+    }
+
+    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
+        Alert aler = new Alert(alertType);
+        aler.setTitle(titulo);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
+
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText(mensaje);
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @FXML
+    void onEliminarVendedor(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onNuevoVendedor(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActualizarVendedor(ActionEvent event) {
+
     }
 
 }
