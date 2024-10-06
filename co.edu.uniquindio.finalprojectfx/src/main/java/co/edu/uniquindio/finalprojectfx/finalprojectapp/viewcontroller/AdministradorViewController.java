@@ -1,6 +1,7 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.controller.AdministradorController;
@@ -10,12 +11,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javax.lang.model.util.AbstractElementVisitor14;
+
+import static co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.MarketPlaceConstantes.*;
 
 public class AdministradorViewController {
 
@@ -81,15 +81,14 @@ public class AdministradorViewController {
     private TextField txtContrasena;
 
     @FXML
-    void onActualizarVendedor(ActionEvent event) {
-
-    }
-
-    @FXML
     void initialize() {
         administradorController = new AdministradorController();
         initView();
+    }
 
+    @FXML
+    void onAgregarVendedor(ActionEvent event) {
+        agregarVendedor();
     }
 
     private void initView() {
@@ -122,6 +121,57 @@ public class AdministradorViewController {
 
     }
 
+    private void agregarVendedor() {
+        VendedorDto vendedorDto = crearVendedorDto();
+        if(datosValidos(vendedorDto)) {
+            if(administradorController.agregarVendedor(vendedorDto)) {
+                listaVendedores.addAll(vendedorDto);
+                limpiarCampos();
+                mostrarMensaje(TITULO_VENDEDOR_AGREGADO, HEADER, BODY_VENDEDOR_AGREGADO, Alert.AlertType.INFORMATION);
+            } else {
+                mostrarMensaje(TITULO_VENDEDOR_NO_AGREGADO, HEADER, BODY_VENDEDOR_NO_AGREGADO,Alert.AlertType.ERROR);
+
+            }
+        } else {
+            mostrarMensaje(TITULO_INCOMPLETO, HEADER, BODY_INCOMPLETO, Alert.AlertType.WARNING);
+
+        }
+
+    }
+
+    private void limpiarCampos() {
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtCedula.setText("");
+        txtDireccion.setText("");
+        txtUsuario.setText("");
+        txtContrasena.setText("");
+    }
+
+    private boolean datosValidos(VendedorDto vendedorDto) {
+        if(vendedorDto.nombre().isBlank() ||
+                vendedorDto.apellidos().isBlank() ||
+           vendedorDto.cedula().isBlank() ||
+           vendedorDto.direccion().isBlank() ||
+           vendedorDto.usuario().isBlank() ||
+           vendedorDto.contrasena().isBlank()
+        ){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private VendedorDto crearVendedorDto() {
+        return new VendedorDto(
+                txtNombre.getText(),
+                txtApellidos.getText(),
+                txtCedula.getText(),
+                txtDireccion.getText(),
+                txtUsuario.getText(),
+                txtContrasena.getText());
+    }
+
     private void mostrarInformacionVendedor(VendedorDto vendedorSeleccionado) {
         if(vendedorSeleccionado != null) {
             txtNombre.setText(vendedorSeleccionado.nombre());
@@ -133,9 +183,25 @@ public class AdministradorViewController {
         }
     }
 
-    @FXML
-    void onAgregarVendedor(ActionEvent event) {
+    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
+        Alert aler = new Alert(alertType);
+        aler.setTitle(titulo);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
 
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText(mensaje);
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @FXML
@@ -145,6 +211,11 @@ public class AdministradorViewController {
 
     @FXML
     void onNuevoVendedor(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActualizarVendedor(ActionEvent event) {
 
     }
 

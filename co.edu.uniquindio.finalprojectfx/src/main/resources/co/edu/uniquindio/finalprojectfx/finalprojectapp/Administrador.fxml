@@ -58,14 +58,14 @@
                         <Label layoutX="26.0" layoutY="318.0" text="NOMBRE:" />
                         <Label layoutX="29.0" layoutY="377.0" text="APELLIDOS:" />
                         <Label layoutX="29.0" layoutY="427.0" text="CEDULA:" />
-                        <Label layoutX="30.0" layoutY="469.0" text="dIRECCIÓN" />
+                        <Label layoutX="30.0" layoutY="469.0" text="DIRECCIÓN" />
                         <TextField fx:id="txtNombre" layoutX="101.0" layoutY="314.0" prefHeight="25.0" prefWidth="260.0" />
                         <TextField fx:id="txtDireccion" layoutX="101.0" layoutY="465.0" prefHeight="25.0" prefWidth="260.0" />
-                        <TextField fx:id="TxtCedula" layoutX="101.0" layoutY="423.0" prefHeight="25.0" prefWidth="260.0" />
+                        <TextField fx:id="txtCedula" layoutX="101.0" layoutY="423.0" prefHeight="25.0" prefWidth="260.0" />
                         <TextField fx:id="txtApellidos" layoutX="101.0" layoutY="373.0" prefHeight="25.0" prefWidth="260.0" />
-                        <Button fx:id="btnNuevo" layoutX="50.0" layoutY="536.0" mnemonicParsing="false" text="Nuevo" />
-                        <Button fx:id="btnAgregar" layoutX="173.0" layoutY="536.0" mnemonicParsing="false" text="Agregar" />
-                        <Button fx:id="btnActualizar" layoutX="284.0" layoutY="536.0" mnemonicParsing="false" text="Actualizar" />
+                        <Button fx:id="btnNuevo" layoutX="50.0" layoutY="536.0" mnemonicParsing="false" onAction="#onNuevoVendedor" text="Nuevo" />
+                        <Button fx:id="btnAgregar" layoutX="173.0" layoutY="536.0" mnemonicParsing="false" onAction="#onAgregarVendedor" text="Agregar" />
+                        <Button fx:id="btnActualizar" layoutX="284.0" layoutY="536.0" mnemonicParsing="false" onAction="#onActualizarVendedor" text="Actualizar" />
                         <Label layoutX="500.0" layoutY="142.0" text="USUARIO" />
                         <Label layoutX="496.0" layoutY="211.0" text="Contraseña" />
                         <TableView fx:id="tableVendedor" layoutX="479.0" layoutY="335.0" prefHeight="337.0" prefWidth="642.0">
@@ -78,9 +78,9 @@
                               <TableColumn fx:id="tcContrasena" prefWidth="106.0" text="Contraseña" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btneEliminar" layoutX="771.0" layoutY="682.0" mnemonicParsing="false" text="Eliminar" />
-                        <TextField fx:id="txtNombre1" layoutX="574.0" layoutY="138.0" prefHeight="25.0" prefWidth="260.0" />
-                        <TextField fx:id="txtNombre2" layoutX="574.0" layoutY="207.0" prefHeight="25.0" prefWidth="260.0" />
+                        <Button fx:id="btneEliminar" layoutX="771.0" layoutY="682.0" mnemonicParsing="false" onAction="#onEliminarVendedor" text="Eliminar" />
+                        <TextField fx:id="txtUsuario" layoutX="574.0" layoutY="138.0" prefHeight="25.0" prefWidth="260.0" />
+                        <TextField fx:id="txtContrasena" layoutX="574.0" layoutY="207.0" prefHeight="25.0" prefWidth="260.0" />
                      </children>
                   </AnchorPane>
             </content>

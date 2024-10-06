@@ -14,4 +14,8 @@ public class AdministradorController {
     public List<VendedorDto> obtenerVendedores() {
         return modelFactory.obtenerVendedores();
     }
+
+    public boolean agregarVendedor(VendedorDto vendedorDto) {
+        return modelFactory.agregarVendedor(vendedorDto);
+    }
 }

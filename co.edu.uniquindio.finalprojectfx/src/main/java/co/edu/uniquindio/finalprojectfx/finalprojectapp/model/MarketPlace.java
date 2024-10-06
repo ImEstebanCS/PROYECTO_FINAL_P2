@@ -87,6 +87,16 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
+    public boolean crearVendedor(Vendedor nuevoVendedor){
+        Vendedor vendedorEncontrado = obtenerVendedor(nuevoVendedor.getCedula());
+        if(vendedorEncontrado == null){
+            getListaVendedores().add(nuevoVendedor);
+            return true;
+        }else{
+            return  false;
+        }
+    }
+
     private Vendedor obtenerVendedor(String cedula) {
         Vendedor vendedorExistente = null;
         for (Vendedor vendedor : getListaVendedores()) {

@@ -2,6 +2,7 @@ package co.edu.uniquindio.finalprojectfx.finalprojectapp.factory;
 
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.mappers.MarketPlaceMappingImpl;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.Vendedor;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.*;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.MarketPlace;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.DataUtil;
@@ -16,7 +17,6 @@ public class ModelFactory implements IModelFactoryService {
     private ModelFactory() {
         mapper = new MarketPlaceMappingImpl();
         marketPlace = DataUtil.inicializarDatos();
-        // administrador = DataUtil.inicializarDatos();
     }
 
     public static ModelFactory getInstance() {
@@ -29,10 +29,11 @@ public class ModelFactory implements IModelFactoryService {
     @Override
     public List<VendedorDto> obtenerVendedores() {
         return mapper.getVendedorDto(marketPlace.getListaVendedores());
-        //return mapper.getVendedorDto(Administrador.getListaVendedores());
+    }
+
+    @Override
+    public boolean agregarVendedor(VendedorDto vendedorDto) {
+        Vendedor vendedor = mapper.vendedorDtoToVendedor(vendedorDto);
+        return marketPlace.crearVendedor(vendedor);
     }
 }
-
-// organizar dto, organizar model factory, organizar clases, minuto 39.53
-// TRABAJAR MAÑANA
-//10:09
