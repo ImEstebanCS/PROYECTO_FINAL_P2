@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="810.0" prefWidth="1315.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab style="-fx-background-color: e1dcfc;" text="Administrador">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="1.0" prefHeight="774.0" prefWidth="1315.0">
+                           <top>
+                              <HBox prefHeight="60.0" prefWidth="1308.0" style="-fx-background-color: e1dcfc;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Text fill="#c97be8" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel de administracion" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="500.0" top="15.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </top>
+                           <bottom>
+                              <HBox prefHeight="60.0" prefWidth="1308.0" style="-fx-background-color: e1dcfc;" BorderPane.alignment="CENTER" />
+                           </bottom>
+                           <center>
+                              <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane prefHeight="654.0" prefWidth="501.0">
+                                       <children>
+                                          <PasswordField fx:id="txtPassword" layoutX="186.0" layoutY="388.0" promptText="Password" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </PasswordField>
+                                          <TextField fx:id="txtUserName" layoutX="186.0" layoutY="325.0" promptText="User Name" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <Text fill="#e268eb" layoutX="117.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresa la informacion del vendedor">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="txtDireccion" layoutX="186.0" layoutY="264.0" promptText="Direccion" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <TextField fx:id="txtCedula" layoutX="186.0" layoutY="208.0" promptText="Cedula" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <TextField fx:id="txtApellidos" layoutX="186.0" layoutY="151.0" promptText="Apellidos" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <TextField fx:id="txtNombres" layoutX="186.0" layoutY="98.0" promptText="Nombres" style="-fx-background-color: trasnparent; -fx-border-color: a898ff; -fx-border-width: 0px 0px 2px 0px;">
+                                             <opaqueInsets>
+                                                <Insets top="15.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="128.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/nombre.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="128.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/apellidos.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="128.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/cedula.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="128.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/direccion.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="130.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/user.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="130.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/passkey.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="btIngresar" layoutX="79.0" layoutY="489.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="134.0" style="-fx-background-color: #9582ff;" text="Guardar" textFill="#f5f5f5">
+                                             <graphic>
+                                                <ImageView fx:id="btnGuardar" fitHeight="52.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@image/Guardar.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                          <Button fx:id="btnActualizar" layoutX="281.0" layoutY="489.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="134.0" style="-fx-background-color: #9582ff;" text="Actualizar" textFill="#f5f5f5">
+                                             <graphic>
+                                                <ImageView fitHeight="64.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@image/actualizar-datos.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="654.0" prefWidth="777.0" style="-fx-background-color: f7f1f7;">
+                                       <children>
+                                          <TableView fx:id="tableVendedor" layoutX="46.0" layoutY="297.0" prefHeight="337.0" prefWidth="717.0" style="-fx-background-color: fae2fe;">
+                                             <columns>
+                                                <TableColumn fx:id="tcNombre" prefWidth="129.0" style="fx-background-color: e1dcfc;" text="Nombre" />
+                                                <TableColumn fx:id="tcApellidos" editable="false" prefWidth="124.0" text="Apellido" />
+                                                <TableColumn fx:id="tcCedula" editable="false" minWidth="0.0" prefWidth="99.0" text="Cedula" />
+                                                <TableColumn fx:id="tcDireccion" editable="false" prefWidth="138.0" text="Direccion" />
+                                                <TableColumn fx:id="tcUsuario" editable="false" minWidth="0.0" prefWidth="111.0" text="Usuario" />
+                                                <TableColumn fx:id="tcContrasena" editable="false" prefWidth="114.0" text="Contraseña" />
+                                             </columns>
+                                          </TableView>
+                                          <ImageView fitHeight="203.0" fitWidth="189.0" layoutX="92.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@image/marketing.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="btnEliminar" layoutX="592.0" layoutY="166.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="134.0" style="-fx-background-color: #9582ff;" text="Eliminar" textFill="#f5f5f5">
+                                             <graphic>
+                                                <ImageView fitHeight="62.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@image/eliminar.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="btnConsultar" layoutX="379.0" layoutY="166.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="135.0" style="-fx-background-color: #9582ff;" text="Consultar" textFill="#f5f5f5">
+                                             <graphic>
+                                                <ImageView fitHeight="47.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@image/buscar.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Text fill="#9582ff" layoutX="397.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Market Place" textAlignment="CENTER" wrappingWidth="293.1552734375">
+                                             <font>
+                                                <Font size="50.0" />
+                                             </font>
+                                          </Text>
+                                       </children></AnchorPane>
+                                 </children>
+                              </HBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab style="-fx-background-color: e1dcfc;" text="Vendedores">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="-2.0" layoutY="-2.0" prefHeight="775.0" prefWidth="1315.0">
+                           <left>
+                              <VBox prefHeight="775.0" prefWidth="257.0" style="-fx-background-color: e1dcfc;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox prefHeight="222.0" prefWidth="257.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="50.0" right="20.0" top="50.0" />
+                                             </HBox.margin>
+                                             <image>
+                                                <Image url="@image/nombre.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Text fill="#9582ff" strokeType="OUTSIDE" strokeWidth="0.0" text="JUAN MANUEL ROJAS" textAlignment="CENTER" wrappingWidth="130.1552734375">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="60.0" right="40.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendedor">
+                                       <VBox.margin>
+                                          <Insets left="95.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Hyperlink contentDisplay="CENTER" text="JuanManRo@vendedor.com" textAlignment="CENTER" wrapText="true">
+                                       <opaqueInsets>
+                                          <Insets left="50.0" right="90.0" />
+                                       </opaqueInsets>
+                                    </Hyperlink>
+                                 </children>
+                              </VBox>
+                           </left>
+                           <bottom>
+                              <HBox prefHeight="32.0" prefWidth="1315.0" style="-fx-background-color: e1dcfc;" BorderPane.alignment="CENTER" />
+                           </bottom>
+                           <top>
+                              <HBox prefHeight="50.0" prefWidth="1315.0" style="-fx-background-color: e1dcfc;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Text fill="#c97be8" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel de Vendedor" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="500.0" top="15.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </top></BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
