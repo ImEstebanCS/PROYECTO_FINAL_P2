@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import javax.lang.model.util.AbstractElementVisitor14;
+import javax.swing.*;
 
 import static co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.MarketPlaceConstantes.*;
 
@@ -205,9 +206,27 @@ public class AdministradorViewController {
     }
 
     @FXML
-    void onEliminarVendedor(ActionEvent event) {
+    void onEliminarVendedor(ActionEvent event) {eliminarVendedor();
 
     }
+    private void eliminarVendedor() {
+        boolean vendedorEliminado=false;
+        if(vendedorSeleccionado != null) {
+            if(mostrarMensajeConfirmacion("¿Estas seguro de eliminar al vendedor?")){
+                vendedorEliminado= administradorController.eliminarVendedor(vendedorSeleccionado.cedula());
+                if(vendedorEliminado==true){
+                    listaVendedores.remove(vendedorSeleccionado);
+                    vendedorSeleccionado=null;
+                    tableVendedor.getSelectionModel().clearSelection();
+                    limpiarCampos();
+                    mostrarMensaje(TITTLE_SELLER,HEADER_SELLER_ELIMINATED,CONTENT_SELLER_DELECTED, Alert.AlertType.INFORMATION);
+                }
+            }else{
+                mostrarMensaje(TITTLE_SELLER,HEADER_SELLER_NOT_DELECTED,CONTENT_SELLER_NOT_DELECTED, Alert.AlertType.WARNING);
+            }
+        }
+    }
+
 
     @FXML
     void onNuevoVendedor(ActionEvent event) {

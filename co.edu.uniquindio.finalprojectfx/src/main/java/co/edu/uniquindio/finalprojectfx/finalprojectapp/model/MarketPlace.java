@@ -108,15 +108,18 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         return vendedorExistente;
     }
 
-    @Override
-    public boolean eliminarVendedor(String cedula) {
-        Vendedor vendedorExistente = obtenerVendedor(cedula);
-        if (vendedorExistente != null) {
+
+    public boolean eliminarVendedor(String cedula) throws VendedorException {
+        Vendedor vendedorExistente = null;
+        boolean flagExiste=false;
+        vendedorExistente = obtenerVendedor(cedula);
+        if(vendedorExistente==null)
+            throw new VendedorException("El vendedor a eliminar no existe");
+        else {
             getListaVendedores().remove(vendedorExistente);
-            return true;
-        } else {
-            return false;
+            flagExiste=true;
         }
+        return flagExiste;
     }
 
     @Override

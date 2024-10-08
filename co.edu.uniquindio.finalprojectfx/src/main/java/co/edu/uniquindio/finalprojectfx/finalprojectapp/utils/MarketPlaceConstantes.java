@@ -26,5 +26,10 @@ public class MarketPlaceConstantes {
     public static final String TITULO_VENDEDOR_AGREGADO = "Vendedor agregado";
     public static final String BODY_VENDEDOR_NO_AGREGADO = "El Vendedor no se agregro, ya existe";
     public static final String BODY_VENDEDOR_AGREGADO = "El Vendedor se agregro con èxito";
+    public static final String TITTLE_SELLER="Notificacion vendedor";
+    public static final String HEADER_SELLER_ELIMINATED="Vendedor eliminado";
+    public static final String HEADER_SELLER_NOT_DELECTED="El vendedor no ha sido eliminado";
+    public static final String CONTENT_SELLER_DELECTED="Se ha eliminado el vendedor correctamente";
+    public static final String CONTENT_SELLER_NOT_DELECTED="El vendedor no ha sido eliminado";
 
 }
