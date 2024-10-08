@@ -14,10 +14,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
     private List<Vendedor> ListaVendedores = new ArrayList<>();
     private List<Producto> ListaProductos = new ArrayList<>();
 
-    public static void actualizarEmpleado(String cedulaActual, Vendedor vendedor) {
-    }
-
-
     public String getNombre() {
         return nombre;
     }
@@ -66,7 +62,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
-
     public boolean actualizarVendedor(String nombre,
                                       String apellidos,
                                       String cedula,
@@ -90,7 +85,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
     @Override
-    public boolean actualizarVendedor(String cedulaActual, Vendedor vendedor){
+    public  boolean actualizarVendedor(String cedulaActual, Vendedor vendedor){
         Vendedor vendedorActual=obtenerVendedor(cedulaActual);
         if(vendedorActual==null){
             throw new RuntimeException("El vendedor a actualizar no existe");
@@ -275,5 +270,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
             return false;
         }
     }
+    public static void actualizarEmpleado(){}
 }
 

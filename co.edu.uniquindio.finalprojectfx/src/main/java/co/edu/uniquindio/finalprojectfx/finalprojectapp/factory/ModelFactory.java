@@ -37,6 +37,7 @@ public class ModelFactory implements IModelFactoryService {
         Vendedor vendedor = mapper.vendedorDtoToVendedor(vendedorDto);
         return marketPlace.crearVendedor(vendedor);
     }
+    @Override
     public boolean eliminarVendedor(String cedula) {
         boolean flagExiste=false;
         try{
@@ -49,11 +50,11 @@ public class ModelFactory implements IModelFactoryService {
 
         return flagExiste;
     }
-
+    @Override
     public boolean actualizarVendedor(String cedulaActual, VendedorDto vendedorDto)  {
-        Vendedor vendedor=mapper.vendedorDtoToVendedor(vendedorDto);
-        MarketPlace.actualizarEmpleado(cedulaActual,vendedor);
-        return true;
+            Vendedor vendedor=mapper.vendedorDtoToVendedor(vendedorDto);
+            return marketPlace.actualizarVendedor(cedulaActual,vendedor);
+
 
     }
 }
