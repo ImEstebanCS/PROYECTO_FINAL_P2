@@ -49,4 +49,11 @@ public class ModelFactory implements IModelFactoryService {
 
         return flagExiste;
     }
+
+    public boolean actualizarVendedor(String cedulaActual, VendedorDto vendedorDto)  {
+        Vendedor vendedor=mapper.vendedorDtoToVendedor(vendedorDto);
+        MarketPlace.actualizarEmpleado(cedulaActual,vendedor);
+        return true;
+
+    }
 }

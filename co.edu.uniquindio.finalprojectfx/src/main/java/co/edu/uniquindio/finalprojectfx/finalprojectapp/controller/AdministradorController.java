@@ -20,4 +20,6 @@ public class AdministradorController {
     }
     public boolean eliminarVendedor(String cedula) { return modelFactory.eliminarVendedor(cedula); }
 
+    public boolean actualizarVendedor(String cedulaActual, VendedorDto vendedorDto) {return modelFactory.actualizarVendedor(cedulaActual, vendedorDto);
+    }
 }

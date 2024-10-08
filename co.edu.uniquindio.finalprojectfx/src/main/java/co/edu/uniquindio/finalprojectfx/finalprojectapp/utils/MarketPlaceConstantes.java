@@ -31,5 +31,8 @@ public class MarketPlaceConstantes {
     public static final String HEADER_SELLER_NOT_DELECTED="El vendedor no ha sido eliminado";
     public static final String CONTENT_SELLER_DELECTED="Se ha eliminado el vendedor correctamente";
     public static final String CONTENT_SELLER_NOT_DELECTED="El vendedor no ha sido eliminado";
-
+    public static final String HEADER_UPDATED_SELLER ="Vendedor actualizado";
+    public static final String CONTENT_UPDATED_SELLER ="El vendedor se ha actualizado con éxito";
+    public static final String HEADER_SELLER_NOT_UPDATED="El vendedor no ha sido actualizado";
+    public static final String CONTENT_SELLER_NOT_UPDATED="El vendedor no se ha podido actualizar";
 }

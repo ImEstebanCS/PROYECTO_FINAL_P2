@@ -14,6 +14,9 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
     private List<Vendedor> ListaVendedores = new ArrayList<>();
     private List<Producto> ListaProductos = new ArrayList<>();
 
+    public static void actualizarEmpleado(String cedulaActual, Vendedor vendedor) {
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -63,7 +66,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
-    @Override
+
     public boolean actualizarVendedor(String nombre,
                                       String apellidos,
                                       String cedula,
@@ -86,6 +89,22 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
             return false;
         }
     }
+    @Override
+    public boolean actualizarVendedor(String cedulaActual, Vendedor vendedor){
+        Vendedor vendedorActual=obtenerVendedor(cedulaActual);
+        if(vendedorActual==null){
+            throw new RuntimeException("El vendedor a actualizar no existe");
+        }else{
+            vendedorActual.setNombre(vendedor.getNombre());
+            vendedorActual.setApellidos(vendedor.getApellidos());
+            vendedorActual.setCedula(vendedor.getCedula());
+            vendedorActual.setDireccion(vendedor.getDireccion());
+            vendedorActual.setUsuario(vendedor.getUsuario());
+            vendedorActual.setContrasena(vendedor.getContrasena());
+            return true;
+        }
+
+    }
 
     public boolean crearVendedor(Vendedor nuevoVendedor){
         Vendedor vendedorEncontrado = obtenerVendedor(nuevoVendedor.getCedula());
@@ -107,7 +126,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
         return vendedorExistente;
     }
-
 
     public boolean eliminarVendedor(String cedula) throws VendedorException {
         Vendedor vendedorExistente = null;
