@@ -13,7 +13,6 @@ public class Vendedor extends Persona{
         super (nombre,apellidos,cedula,direccion,usuario,contrasena);
     }
 
-
     public static VendedorBuilder builder() {
         return new VendedorBuilder();
     }

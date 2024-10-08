@@ -206,7 +206,25 @@ public class AdministradorViewController {
 
     @FXML
     void onEliminarVendedor(ActionEvent event) {
+        eliminarVendedor();
+    }
 
+    private void eliminarVendedor() {
+        boolean vendedorEliminado=false;
+        if(vendedorSeleccionado != null) {
+            if(mostrarMensajeConfirmacion("¿Estas seguro de eliminar al vendedor?")){
+                vendedorEliminado= administradorController.eliminarVendedor(vendedorSeleccionado.cedula());
+                if(vendedorEliminado==true){
+                    listaVendedores.remove(vendedorSeleccionado);
+                    vendedorSeleccionado=null;
+                    tableVendedor.getSelectionModel().clearSelection();
+                    limpiarCampos();
+                    mostrarMensaje(TITTLE_SELLER,HEADER_SELLER_ELIMINATED,CONTENT_SELLER_DELECTED, Alert.AlertType.INFORMATION);
+                }
+            }else{
+                mostrarMensaje(TITTLE_SELLER,HEADER_SELLER_NOT_DELECTED,CONTENT_SELLER_NOT_DELECTED, Alert.AlertType.WARNING);
+            }
+        }
     }
 
     @FXML
@@ -215,7 +233,28 @@ public class AdministradorViewController {
     }
 
     @FXML
-    void onActualizarVendedor(ActionEvent event) {
+    void onActualizarVendedor(ActionEvent event) {actualizarVendedor();}
+
+    private void actualizarVendedor() {
+        boolean vendedorActualizado=false;
+        String cedulaActual=vendedorSeleccionado.cedula();
+        VendedorDto vendedorDto=crearVendedorDto();
+        if(vendedorSeleccionado!=null){
+            if(datosValidos(vendedorDto)){
+                vendedorActualizado=administradorController.actualizarVendedor(cedulaActual,vendedorDto);
+                if(vendedorActualizado){
+                    listaVendedores.remove(vendedorSeleccionado);
+                    listaVendedores.add(vendedorDto);
+                    tableVendedor.refresh();
+                    mostrarMensaje(TITTLE_SELLER,HEADER_UPDATED_SELLER, CONTENT_UPDATED_SELLER, Alert.AlertType.INFORMATION);
+                    limpiarCampos();
+                }else {
+                    mostrarMensaje(TITTLE_SELLER,HEADER_SELLER_NOT_UPDATED, CONTENT_SELLER_NOT_UPDATED, Alert.AlertType.WARNING);
+                }
+            }else{
+                mostrarMensaje(TITTLE_SELLER,"Empleado no creado","Los datos ingresados no son validos", Alert.AlertType.ERROR);
+            }
+        }
 
     }
 

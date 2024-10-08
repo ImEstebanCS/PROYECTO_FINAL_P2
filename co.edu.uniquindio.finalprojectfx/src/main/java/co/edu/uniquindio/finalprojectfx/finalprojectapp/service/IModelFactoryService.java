@@ -8,4 +8,6 @@ public interface IModelFactoryService {
     List<VendedorDto> obtenerVendedores();
 
     boolean agregarVendedor(VendedorDto vendedorDto);
+    boolean eliminarVendedor(String cedula);
+    boolean actualizarVendedor(String cedulaActual, VendedorDto vendedorDto);
 }
