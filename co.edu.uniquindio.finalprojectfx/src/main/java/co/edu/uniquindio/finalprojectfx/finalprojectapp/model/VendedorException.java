@@ -5,3 +5,4 @@ public class VendedorException extends Exception {
         super(mensaje);
     }
 }
+

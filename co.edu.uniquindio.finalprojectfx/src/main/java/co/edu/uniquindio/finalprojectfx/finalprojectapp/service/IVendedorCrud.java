@@ -6,7 +6,6 @@ import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.VendedorException;
 public interface IVendedorCrud {
 
     boolean crearVendedor (String nombre, String apellidos, String cedula, String direccion, String usuario, String contrasena);
-    boolean actualizarVendedor (String cedulaActual, Vendedor vendedor) throws VendedorException ;
+    boolean actualizarVendedor(String nombre, String cedula, String apellidos, String direccion, String usuario, String contrasena);
     boolean eliminarVendedor (String cedula) throws VendedorException;
-
 }

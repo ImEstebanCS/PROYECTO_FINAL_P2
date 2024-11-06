@@ -14,6 +14,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
     private List<Vendedor> ListaVendedores = new ArrayList<>();
     private List<Producto> ListaProductos = new ArrayList<>();
 
+
     public String getNombre() {
         return nombre;
     }
@@ -22,7 +23,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         this.nombre = nombre;
     }
 
-    public List<Vendedor> getListaVendedores() {
+    public  List<Vendedor> getListaVendedores() {
         return ListaVendedores;
     }
 
@@ -62,12 +63,13 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
+    @Override
     public boolean actualizarVendedor(String nombre,
-                                      String apellidos,
-                                      String cedula,
-                                      String direccion,
-                                      String usuario,
-                                      String contrasena) {
+                                       String cedula,
+                                       String apellidos,
+                                       String direccion,
+                                       String usuario,
+                                       String contrasena) {
         Vendedor vendedorExistente = obtenerVendedor(cedula);
         if (vendedorExistente != null) {
             Vendedor vendedorActualizado = Vendedor.builder()
@@ -84,7 +86,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
             return false;
         }
     }
-    @Override
+
     public  boolean actualizarVendedor(String cedulaActual, Vendedor vendedor){
         Vendedor vendedorActual=obtenerVendedor(cedulaActual);
         if(vendedorActual==null){
@@ -98,7 +100,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
             vendedorActual.setContrasena(vendedor.getContrasena());
             return true;
         }
-
     }
 
     public boolean crearVendedor(Vendedor nuevoVendedor){
@@ -122,6 +123,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         return vendedorExistente;
     }
 
+    @Override
     public boolean eliminarVendedor(String cedula) throws VendedorException {
         Vendedor vendedorExistente = null;
         boolean flagExiste=false;
@@ -157,7 +159,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         } else {
             return false;
         }
-
     }
 
     @Override
@@ -270,6 +271,5 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
             return false;
         }
     }
-    public static void actualizarEmpleado(){}
 }
 

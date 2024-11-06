@@ -13,6 +13,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import javax.lang.model.util.AbstractElementVisitor14;
+
 import static co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.MarketPlaceConstantes.*;
 
 public class AdministradorViewController {
@@ -203,9 +205,10 @@ public class AdministradorViewController {
     }
 
     @FXML
-    void onEliminarVendedor(ActionEvent event) {eliminarVendedor();
-
+    void onEliminarVendedor(ActionEvent event) {
+        eliminarVendedor();
     }
+
     private void eliminarVendedor() {
         boolean vendedorEliminado=false;
         if(vendedorSeleccionado != null) {
@@ -223,7 +226,6 @@ public class AdministradorViewController {
             }
         }
     }
-
 
     @FXML
     void onNuevoVendedor(ActionEvent event) {
