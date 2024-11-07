@@ -13,7 +13,6 @@ public class Administrador extends Persona {
         super (nombre,apellidos,cedula,direccion,usuario,contrasena);
     }
 
-
     public static AdministradorBuilder builder() {
         return new AdministradorBuilder();
     }

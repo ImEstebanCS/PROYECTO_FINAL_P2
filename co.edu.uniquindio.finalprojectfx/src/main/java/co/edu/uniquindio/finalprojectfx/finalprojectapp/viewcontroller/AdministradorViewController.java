@@ -39,9 +39,6 @@ public class AdministradorViewController {
     private Button btnAgregar;
 
     @FXML
-    private Button btnNuevo;
-
-    @FXML
     private Button btneEliminar;
 
     @FXML
@@ -114,10 +111,10 @@ public class AdministradorViewController {
     }
 
     private void listenerSelection() {
-        tableVendedor.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            vendedorSeleccionado = newSelection;
-            mostrarInformacionVendedor(vendedorSeleccionado);
-        });
+            tableVendedor.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+                vendedorSeleccionado = newSelection;
+                mostrarInformacionVendedor(vendedorSeleccionado);
+            });
 
     }
 
@@ -130,13 +127,11 @@ public class AdministradorViewController {
                 mostrarMensaje(TITULO_VENDEDOR_AGREGADO, HEADER, BODY_VENDEDOR_AGREGADO, Alert.AlertType.INFORMATION);
             } else {
                 mostrarMensaje(TITULO_VENDEDOR_NO_AGREGADO, HEADER, BODY_VENDEDOR_NO_AGREGADO,Alert.AlertType.ERROR);
-
             }
         } else {
             mostrarMensaje(TITULO_INCOMPLETO, HEADER, BODY_INCOMPLETO, Alert.AlertType.WARNING);
 
         }
-
     }
 
     private void limpiarCampos() {
@@ -227,16 +222,14 @@ public class AdministradorViewController {
         }
     }
 
-    @FXML
-    void onNuevoVendedor(ActionEvent event) {
 
+    @FXML
+    void onActualizarVendedor(ActionEvent event) {
+        actualizarVendedor();
     }
 
-    @FXML
-    void onActualizarVendedor(ActionEvent event) {actualizarVendedor();}
-
     private void actualizarVendedor() {
-        boolean vendedorActualizado=false;
+        boolean vendedorActualizado = false;
         String cedulaActual=vendedorSeleccionado.cedula();
         VendedorDto vendedorDto=crearVendedorDto();
         if(vendedorSeleccionado!=null){
@@ -255,8 +248,6 @@ public class AdministradorViewController {
                 mostrarMensaje(TITTLE_SELLER,"Empleado no creado","Los datos ingresados no son validos", Alert.AlertType.ERROR);
             }
         }
-
     }
-
 }
 

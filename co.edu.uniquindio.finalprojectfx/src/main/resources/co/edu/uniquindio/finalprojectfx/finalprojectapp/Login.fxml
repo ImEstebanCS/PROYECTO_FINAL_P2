@@ -35,7 +35,7 @@
             <Font name="Apple SD Gothic Neo UltraLight" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnIngresar" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="231.0" style="-fx-background-color: #47493C; -fx-border-color: #A39992; -fx-border-width: 2; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2);" stylesheets="@Style.css" text="IINGRESAR">
+      <Button fx:id="btnIngresar" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="231.0" style="-fx-background-color: #47493C; -fx-border-color: #A39992; -fx-border-width: 2; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2);" stylesheets="@CSS/Style.css" text="IINGRESAR">
          <font>
             <Font name="Roboto Bold" size="16.0" />
          </font></Button>
