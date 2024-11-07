@@ -8,7 +8,6 @@ public class DataUtil {
 
     public static MarketPlace inicializarDatos() {
         MarketPlace marketPlace = new MarketPlace();
-        //Administrador administrador = new Administrador();
 
         Vendedor vendedor1 = Vendedor.builder()
                 .nombre("Esteban")
@@ -18,6 +17,7 @@ public class DataUtil {
                 .usuario("ImEstebanCS")
                 .contrasena("Juanito2004")
                 .build();
+
         Vendedor vendedor2= Vendedor.builder()
                 .nombre("Manuel")
                 .apellidos("Rojas")
@@ -27,9 +27,19 @@ public class DataUtil {
                 .contrasena("123456789")
                 .build();
 
+        Producto producto1 = Producto.builder()
+                .nombre("Saco Verde a Cuadros")
+                .imagen("SacoVerdeCuadros.png")
+                .categoria("Ropa - Hombre")
+                .precio(800)
+                .estadoProducto("Publicado")
+                .fechaPublicacion(LocalDate.of(2023, 7, 5))
+                .build();
+
+
         marketPlace.getListaVendedores().add(vendedor1);
         marketPlace.getListaVendedores().add(vendedor2);
-
+        marketPlace.getListaProductos().add(producto1);
         return marketPlace;
     }
 }

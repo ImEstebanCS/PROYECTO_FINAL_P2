@@ -1,6 +1,5 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.model.builder;
 
-import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.EstadoProducto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.Producto;
 
 import java.time.LocalDate;
@@ -10,7 +9,7 @@ public class ProductoBuilder {
     private String imagen;
     private String categoria;
     private double precio;
-    private EstadoProducto estadoProducto;
+    private String estadoProducto;
     private LocalDate fechaPublicacion;
 
     public ProductoBuilder nombre(String nombre) {
@@ -33,7 +32,7 @@ public class ProductoBuilder {
         return this;
     }
 
-    public ProductoBuilder estadoProducto(EstadoProducto estadoProducto) {
+    public ProductoBuilder estadoProducto(String estadoProducto) {
         this.estadoProducto = estadoProducto;
         return this;
     }

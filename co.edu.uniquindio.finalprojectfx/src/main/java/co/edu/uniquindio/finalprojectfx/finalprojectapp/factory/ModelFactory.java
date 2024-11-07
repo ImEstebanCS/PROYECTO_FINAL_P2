@@ -1,11 +1,10 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.factory;
 
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.mappers.MarketPlaceMappingImpl;
-import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.Vendedor;
-import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.VendedorException;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.*;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.*;
-import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.MarketPlace;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.utils.DataUtil;
 
 import java.util.List;
@@ -56,4 +55,34 @@ public class ModelFactory implements IModelFactoryService {
         Vendedor vendedor = mapper.vendedorDtoToVendedor(vendedorDto);
         return marketPlace.actualizarVendedor(cedulaActual, vendedor);
     }
+
+    @Override
+    public List<ProductoDto> obtenerProductos() {
+        return mapper.getProductoDto(marketPlace.getListaProductos());
+    }
+
+    @Override
+    public boolean agregarProducto(ProductoDto productoDto) {
+        Producto producto = mapper.ProductoDtoToProducto(productoDto);
+        return marketPlace.crearProducto(producto);
+    }
+
+    @Override
+    public boolean eliminarProducto(String nombre) {
+        boolean flagExiste = false;
+        try{
+            flagExiste = marketPlace.eliminarProducto(nombre);
+
+        }catch (ProductoException e){
+            e.printStackTrace();
+        }
+        return flagExiste;
+    }
+
+    @Override
+    public boolean actualizarProducto(String nombreActual, ProductoDto productoDto) {
+        Producto producto = mapper.ProductoDtoToProducto(productoDto);
+        return marketPlace.actualizarProducto(nombreActual, producto);
+    }
+
 }
