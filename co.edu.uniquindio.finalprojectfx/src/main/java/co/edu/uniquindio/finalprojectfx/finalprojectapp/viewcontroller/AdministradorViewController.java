@@ -257,6 +257,12 @@ public class AdministradorViewController {
         }
 
     }
+    @FXML
+    private Button likeBtn;
+    void likeBtn(ActionEvent event){
+        System.out.println("Boton");
+    }
+
 
 }
 
