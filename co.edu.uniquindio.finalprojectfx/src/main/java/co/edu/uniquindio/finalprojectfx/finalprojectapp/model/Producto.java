@@ -11,7 +11,7 @@ public class Producto {
     private String imagen;
     private String categoria;
     private double precio;
-    private EstadoProducto estadoProducto;
+    private String estadoProducto;
     private LocalDate fechaPublicacion;
 
     private List<Comentarios> comentarios = new ArrayList<>();
@@ -20,13 +20,37 @@ public class Producto {
                     String imagen,
                     String categoria,
                     double precio,
-                    EstadoProducto estadoProducto,
+                    String estadoProducto,
                     LocalDate fechaPublicacion) {
         this.nombre = nombre;
         this.imagen = imagen;
         this.categoria = categoria;
         this.precio = precio;
         this.estadoProducto = estadoProducto;
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setEstadoProducto(String estadoProducto) {
+        this.estadoProducto = estadoProducto;
+    }
+
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
@@ -46,7 +70,7 @@ public class Producto {
         return precio;
     }
 
-    public EstadoProducto getEstadoProducto() {
+    public String getEstadoProducto() {
         return estadoProducto;
     }
 

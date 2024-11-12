@@ -14,7 +14,6 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
     private List<Vendedor> ListaVendedores = new ArrayList<>();
     private List<Producto> ListaProductos = new ArrayList<>();
 
-
     public String getNombre() {
         return nombre;
     }
@@ -142,7 +141,7 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
                                  String imagen,
                                  String categoria,
                                  double precio,
-                                 EstadoProducto estadoProducto,
+                                 String estadoProducto,
                                  LocalDate fechaPublicacion) {
         Producto productoExistente = obtenerProducto(nombre);
         if (productoExistente == null) {
@@ -161,10 +160,31 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
+    public boolean crearProducto(Producto nuevoProducto){
+        Producto productoEncontrado = obtenerProducto((nuevoProducto.getNombre()));
+        if(productoEncontrado== null){
+            getListaProductos().add(nuevoProducto);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private Producto obtenerproducto(String nombre) {
+        Producto productoExistente = null;
+        for (Producto producto: getListaProductos()){
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                productoExistente = producto;
+                break;
+            }
+        }
+        return productoExistente;
+    }
+
     @Override
-    public boolean actulizarProducto(String nombre,
+    public boolean actualizarProducto(String nombre,
                                      double precio,
-                                     EstadoProducto estadoProducto) {
+                                     String estadoProducto) {
         Producto productoExistente = obtenerProducto(nombre);
         if (productoExistente != null) {
             Producto productoActualizado = Producto.builder()
@@ -180,6 +200,22 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
         }
     }
 
+    public boolean actualizarProducto(String nombreActual, Producto producto){
+        Producto productoActual = obtenerProducto(nombreActual);
+        if(productoActual == null){
+            throw  new RuntimeException("El producto a actualizar no existe");
+        } else {
+            productoActual.setNombre(producto.getNombre());
+            productoActual.setCategoria(producto.getCategoria());
+            productoActual.setPrecio(producto.getPrecio());
+            productoActual.setEstadoProducto(producto.getEstadoProducto());
+            productoActual.setFechaPublicacion(producto.getFechaPublicacion());
+            productoActual.setImagen(producto.getImagen());
+            return true;
+        }
+    }
+
+
     private Producto obtenerProducto (String nombre) {
         Producto productoExistente = null;
         for (Producto producto : getListaProductos()) {
@@ -192,14 +228,17 @@ public class MarketPlace implements IVendedorCrud, IProductoCrud, IAdministrador
     }
 
     @Override
-    public boolean eliminarProducto(String nombre) {
-        Producto productoExistente = obtenerProducto(nombre);
-        if (productoExistente != null) {
+    public boolean eliminarProducto(String nombre) throws ProductoException {
+        Producto productoExistente = null;
+        boolean flagExiste = false;
+        productoExistente = obtenerProducto(nombre);
+        if(productoExistente == null)
+            throw  new ProductoException("El producto a eliminar no existe");
+        else {
             getListaProductos().remove(productoExistente);
-            return true;
-        } else {
-            return false;
+            flagExiste = true;
         }
+        return flagExiste;
     }
 
     @Override

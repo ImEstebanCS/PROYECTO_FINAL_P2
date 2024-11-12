@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="824.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller.MarketPlaceAppController">
+<AnchorPane prefHeight="824.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller.MarketPlaceAppController">
    <children>
       <TabPane prefHeight="816.0" prefWidth="1184.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Administrador ">
+          <Tab text="Administardor ">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <SplitPane layoutX="-3.0" layoutY="-7.0" orientation="VERTICAL" prefHeight="802.0" prefWidth="1190.0">
+                        <SplitPane layoutX="-3.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="756.0" prefWidth="1190.0">
                             <items>
                                 <fx:include source="Administrador.fxml" />
                             </items>
@@ -28,18 +25,13 @@
           <Tab text="Vendedor ">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="792.0" prefWidth="1184.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <Button fx:id="LikeBtn" onAction="#onLikeBtn" layoutX="198.0" layoutY="90.0" mnemonicParsing="false" text="like" />
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                          </items>
+                    <children>
+                        <SplitPane layoutX="-2.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="795.0" prefWidth="1193.0">
+                            <items>
+                                <fx:include source="Vendedor.fxml" />
+                            </items>
                         </SplitPane>
-                     </children>
+                    </children>
                 </AnchorPane>
             </content>
           </Tab>

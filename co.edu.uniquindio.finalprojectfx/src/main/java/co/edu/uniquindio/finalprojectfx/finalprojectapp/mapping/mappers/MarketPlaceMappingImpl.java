@@ -1,10 +1,13 @@
 package co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.mappers;
 
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.mapping.dto.VendedorDto;
+import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.Producto;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.Vendedor;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.model.builder.VendedorBuilder;
 import co.edu.uniquindio.finalprojectfx.finalprojectapp.service.IMarketPlaceMapping;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,4 +45,41 @@ public class MarketPlaceMappingImpl implements IMarketPlaceMapping {
                 .direccion(vendedorDto.direccion())
                 .build();
     }
+
+    @Override
+    public List<ProductoDto> getProductoDto(List<Producto> listaProductos) {
+        if(listaProductos == null){
+            return null;
+        }
+        List<ProductoDto> listaProductosDto = new ArrayList<>(listaProductos.size());
+        for (Producto producto : listaProductos) {
+            listaProductosDto.add(productoToProductoDto(producto));
+        }
+        return listaProductosDto;
+    }
+
+    @Override
+    public ProductoDto productoToProductoDto(Producto producto) {
+        return new ProductoDto(
+                producto.getNombre(),
+                producto.getCategoria(),
+                producto.getPrecio(),
+                producto.getFechaPublicacion(),
+                producto.getEstadoProducto(),
+                producto.getImagen());
+    }
+
+    @Override
+    public Producto ProductoDtoToProducto(ProductoDto productoDto) {
+        return Producto.builder()
+                .nombre(productoDto.nombre())
+                .categoria(productoDto.categoria())
+                .precio(productoDto.precio())
+                .imagen(productoDto.imagen())
+                .fechaPublicacion(productoDto.fechaPublicacion())
+                .estadoProducto(productoDto.estadoProducto())
+                .build();
+    }
+
+
 }
