@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane prefHeight="681.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="681.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.finalprojectfx.finalprojectapp.viewcontroller.VendedorMuroViewController">
     <top>
         <HBox alignment="CENTER" style="-fx-background-color: #2A2A2A;">
            <children>
@@ -76,7 +76,7 @@
                              <VBox spacing="10" HBox.hgrow="ALWAYS">
                                 <children>
                                     <!-- Tabla de productos propios -->
-                                    <TableView style="-fx-background-color: #888176;" VBox.vgrow="ALWAYS">
+                                    <TableView editable="true" style="-fx-background-color: #2E2F26;" VBox.vgrow="ALWAYS">
                                         <columns>
                                             <TableColumn prefWidth="217.0" text="Nombre" />
                                             <TableColumn prefWidth="170.0" text="Categoría" />
